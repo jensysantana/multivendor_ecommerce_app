@@ -1,26 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tw-animate-css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Custom colors */
+  --color-primary: #FF0000;
+  --color-secondary: #00FF00;
+
+  /* Custome fonts */
+  --font-barlow: "Barlow", sans-serif;
+
+  /* custom spacing or padding*/
+  /* 27.2px */
+  --spacing-7: 1.7rem;
+
+  /* custom breakpoint */
+  --breakpoint-xs: 320px;
+  --breakpoint-mybreakpoint: 700px;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*  layer base customization  */
+@layer base {
+
+  /*  apply default styling to plain html  */
+  a {
+    /* color: var(--color-primary); */
+    text-decoration: none;
+    padding: 25px;
+    color: red;
+    @apply hover:underline hover:text-blue-500 font-bold;
+  }
+
+  h3 {
+    @apply text-3xl font-semibold text-indigo-500;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+/* @laYER COMPONENT */
+@layer components {
+
+  /* Reusable component class */
+  .btn {
+    @apply px-4 py-2 cursor-pointer bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors;
+    /* @apply px-4 py-2 text-red-600; */
+    display: block;
+    margin-bottom: 30px
+  }
+
+  .btn-primary {
+    /* background-color: rgb(139, 33, 188); */
+    /* @apply px-4 py-2 text-blue-900; */
+    @apply bg-indigo-500 text-white;
+    display: block;
+  }
+}
+
+/* utilities class */
+@utility my-text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* font-weight: bold; */
+  font-weight: semibold;
+  font-size: 1.3rem;
+  /* color: var(--color-primary); */
+  @apply text-indigo-500;
 }
