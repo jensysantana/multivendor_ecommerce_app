@@ -1,0 +1,44 @@
+.header {
+  background: #000;
+  /* height: 30px; */
+  padding: 30px;
+  width: 100%;
+  color: #fff !important;
+  /* display: grid;
+  grid-template-columns: auto 500px auto;
+  align-items: center;
+  justify-items: space-between; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.dropMenu {
+  position: relative;
+}
+
+.dropContainer {
+  background-color: #fff;
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: absolute;
+  right: -20px;
+  top: 55px;
+  display: none;
+}
+
+.li {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  color: blue;
+}
+
+.active {
+  display: block !important;
+}
+
+/* .dropContainer:hover {
+  display: block;
+} */

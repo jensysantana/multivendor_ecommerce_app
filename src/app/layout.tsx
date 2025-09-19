@@ -1,6 +1,18 @@
+
+// Next
 import type { Metadata } from "next";
+
+// Fonts
 import { Geist, Geist_Mono, Barlow, Poppins, Bokor } from "next/font/google";
+
+
+// Theme provider
+import { ThemeProvider } from "next-themes";
+
+// global css
 import "./globals.css";
+import { Dropdown } from "@/components/my-test-components/dropdown";
+
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -41,12 +53,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bocorFont.variable}`}>
+    <html lang="en" >
+      {/* className={`${bocorFont.variable}`} */}
       <body
         // className={`${geistSans.className} ${barlow.variable} antialiased`}
-        className={`antialiased`}
+        className={`antialiased dark:`}
       >
-        {children}
+        <Dropdown />
+        <ThemeProvider
+          attribute={'class'}
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
