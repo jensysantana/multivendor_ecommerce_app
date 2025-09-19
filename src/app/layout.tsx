@@ -2,6 +2,16 @@
 // Next
 import type { Metadata } from "next";
 
+// Clerk provider
+import {
+  ClerkProvider,
+  // SignInButton,
+  // SignUpButton,
+  // SignedIn,
+  // SignedOut,
+  // UserButton,
+} from '@clerk/nextjs'
+
 // Fonts
 import { Geist, Geist_Mono, Barlow, Poppins, Bokor } from "next/font/google";
 
@@ -53,22 +63,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
-      {/* className={`${bocorFont.variable}`} */}
-      <body
-        // className={`${geistSans.className} ${barlow.variable} antialiased`}
-        className={`antialiased dark:`}
-      >
-        <Dropdown />
-        <ThemeProvider
-          attribute={'class'}
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en" >
+        {/* className={`${bocorFont.variable}`} */}
+        <body
+          // className={`${geistSans.className} ${barlow.variable} antialiased`}
+          className={`antialiased dark:`}
         >
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute={'class'}
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
